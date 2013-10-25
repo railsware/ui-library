@@ -1,0 +1,145 @@
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:400,700");
+@import url("http://yandex.st/highlightjs/7.3/styles/github.min.css");
+@import url("reset.css");
+
+
+body, html {
+  height: 100%;
+}
+
+body {
+  font: 14px/1.3em 'Open Sans';
+}
+
+/*==============================*/
+/*  Navigation
+/*==============================*/
+.navigation {
+  z-index: 100;
+  background: #2e3132;
+  height: 100%;
+  width: 220px;
+  float: left;
+  position: relative;
+  margin-left: -220px;
+  -webkit-transition: margin 0.4s ease;
+  transition: margin 0.4s ease;
+}
+
+.navigation h1 {
+  color: #13c0a0;
+  padding: 20px;
+  font-weight: 700;
+}
+
+.navigation ul a {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 2px 20px;
+  color: #9aa1a2;
+  text-decoration: none;
+}
+
+.navigation ul a:hover {
+  background: #3a3a3a
+}
+
+.navigation .expander {
+  position: absolute;
+  display: block;
+  width: 40px;
+  height: 46px;
+  right: -40px;
+  top: 5px;
+  cursor: pointer;
+  background: #2e3132;
+  -webkit-border-radius: 0 4px 4px 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.navigation.expanded {
+  margin-left: 0;
+}
+
+/*=================================*/
+/*  Structure
+/*=================================*/
+.library-content {
+  display: table-cell;
+  float: none;
+  width: auto;
+  _margin-right: -3px;
+  _left: -3px;
+  _position: relative;
+  *display: block;
+  *zoom: 1;
+}
+
+.library-content:after {
+  content: " . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .";
+  clear: both;
+  display: block;
+  height: 0 !important;
+  line-height: 0;
+  visibility: hidden; 
+}
+
+.library-section {
+  position: relative;
+  border-bottom: 1px solid #eee;
+  *zoom: 1;
+}
+
+.library-section:after {
+  content: ".";
+  display: block;
+  height: 0;
+  line-height: 0;
+  clear: both;
+  visibility: hidden; 
+}
+
+.library-section:first-child .library-preview:before, .library-section:first-child  .library-code:before {
+  display: block;
+  font-size: 13px;
+  color: #bfcbce;
+  text-align: right;
+  padding: 0 20px 20px 20px;
+  margin-bottom: 20px;
+}
+
+.library-section:first-child  .library-preview:before {
+  content: 'PREVIEW';
+}
+
+.library-section:first-child  .library-code:before {
+  content: 'CODE';
+}
+
+.library-preview, .library-code {
+  float: left;
+  padding: 30px 20px 10px 20px;
+  box-sizing: border-box;
+  width: 50%;
+}
+
+.library-section-label {
+  color: #9aa1ad;
+  position: absolute;
+  left: 20px;
+  top: 5px;
+}
+
+.library-section:first-child .library-section-label {
+  top: 60px;
+}
+
+.library-code {
+  background: #ecf0f1;
+}
+
+pre code {
+  white-space: nowrap;
+  padding: .5em 1em;
+}
