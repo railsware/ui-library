@@ -7,14 +7,10 @@ body, html {
   height: 100%;
 }
 
-body {
-  font: 14px/1.3em 'Open Sans';
-}
-
 /*==============================*/
 /*  Navigation
 /*==============================*/
-.navigation {
+.library-navigation {
   z-index: 100;
   background: #2e3132;
   height: 100%;
@@ -26,13 +22,15 @@ body {
   transition: margin 0.4s ease;
 }
 
-.navigation h1 {
+.library-navigation h1 {
+  font: 16px/1.3em 'Open Sans';
   color: #13c0a0;
   padding: 20px;
   font-weight: 700;
 }
 
-.navigation ul a {
+.library-navigation ul a {
+  font: 14px/1.3em 'Open Sans';
   display: block;
   font-size: 14px;
   font-weight: 700;
@@ -41,15 +39,16 @@ body {
   text-decoration: none;
 }
 
-.navigation ul a:hover {
+.library-navigation ul a:hover {
   background: #3a3a3a
 }
 
-.navigation .expander {
+.library-navigation .expander {
   position: absolute;
   display: block;
-  width: 40px;
-  height: 46px;
+  width: 24px;
+  height: 24px;
+  padding: 10px 8px 8px;
   right: -40px;
   top: 5px;
   cursor: pointer;
@@ -58,7 +57,19 @@ body {
   border-radius: 0 4px 4px 0;
 }
 
-.navigation.expanded {
+.library-navigation .expander:hover {
+  background: #333536;
+}
+
+.library-navigation .expander span {
+  display: block;
+  height: 4px;
+  background: #9aa1a2;
+  margin-bottom: 5px;
+  border-radius: 3px;
+}
+
+.library-navigation.expanded {
   margin-left: 0;
 }
 
@@ -102,11 +113,11 @@ body {
 
 .library-section:first-child .library-preview:before, .library-section:first-child  .library-code:before {
   display: block;
-  font-size: 13px;
   color: #bfcbce;
   text-align: right;
   padding: 0 20px 20px 20px;
   margin-bottom: 20px;
+  font: 13px/1.3em 'Open Sans';
 }
 
 .library-section:first-child  .library-preview:before {
@@ -125,6 +136,7 @@ body {
 }
 
 .library-section-label {
+  font: 14px/1.3em 'Open Sans';
   color: #9aa1ad;
   position: absolute;
   left: 20px;
@@ -139,7 +151,12 @@ body {
   background: #ecf0f1;
 }
 
+/*=============================*/
+/* Code Highlight
+/*=============================*/
+
 pre code {
+  font: 12px/1.3em 'Monaco';
   white-space: nowrap;
   padding: .5em 1em;
 }
