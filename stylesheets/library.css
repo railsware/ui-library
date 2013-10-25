@@ -155,8 +155,17 @@ body, html {
 /* Code Highlight
 /*=============================*/
 
+pre {
+  max-width: 100%;
+  white-space: pre-wrap;
+}
+
+code {
+  max-width: 100%;
+}
+
 pre code {
   font: 12px/1.3em 'Monaco';
-  white-space: nowrap;
+/*  white-space: pre-line;*/
   padding: .5em 1em;
 }

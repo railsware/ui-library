@@ -1,9 +1,21 @@
 $(document).ready(function(){
   
   var Library = {
+    htmlClean: function(dirtyHtml) {
+      dirtyHtml = dirtyHtml.replace(/(\r\n|\n|\r)/,'');
+      leadingSpaces = dirtyHtml.substr(0, dirtyHtml.indexOf("<"));
+      dirtyHtmlArray = dirtyHtml.split(/(\r\n|\n|\r)/g);
+      linesArray = [];
+      for (i=0; i<dirtyHtmlArray.length; i++) {
+        linesArray.push(dirtyHtmlArray[i].replace(leadingSpaces,''));
+      }
+      return linesArray.join('').trim();
+    },
+
     buildSections: function(){
       $(".library-section").each(function(i, element){
-        Library.setupSection(this, $(element).html(), $(element).data('label'));
+        content = Library.htmlClean($(element).html());
+        Library.setupSection(this, content, $(element).data('label'));
       });
     },
     
@@ -17,7 +29,7 @@ $(document).ready(function(){
 
     loadHighlight: function(){
       $.getScript("http://yandex.st/highlightjs/7.3/highlight.min.js", function(){
-        hljs.tabReplace = '    ';
+        hljs.tabReplace = '  ';
         hljs.initHighlightingOnLoad();
       });
     }
