@@ -151,6 +151,16 @@ body, html {
   background: #ecf0f1;
 }
 
+.library-color-sample {
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  padding: 10px;
+  margin-right: 10px;
+  font: 13px/1.3em 'Open Sans';
+  color: #fff;
+}
+
 /*=============================*/
 /* Code Highlight
 /*=============================*/

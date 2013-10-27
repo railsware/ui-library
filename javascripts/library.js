@@ -14,18 +14,26 @@ $(document).ready(function(){
 
     buildSections: function(){
       $(".library-section").each(function(i, element){
-        content = Library.htmlClean($(element).html());
-        Library.setupSection(this, content, $(element).data('label'));
+        content = Library.htmlClean($(this).html());
+        Library.setupSection(this, content, $(this).data('label'));
+        Library.codeSample(this, content);
       });
     },
     
     setupSection: function(element, content, label){
-      $(element).html("<div class='library-preview'></div><div class='library-code'></div>");
+      $(element).html("<div class='library-preview'>");
       $(element).find('.library-preview').html(content);
-      $(element).find('.library-code').html('<pre><code></code></pre>');
-      $(element).find('.library-code pre code').text(content);
       $(element).prepend("<span class='library-section-label'>"+label+"</span>");
     },
+
+	codeSample: function(element, content){
+    $(element).append("</div><div class='library-code'></div>");
+    $(element).find('.library-code').html('<pre><code></code></pre>');
+    $(element).find('.library-code pre code').text(content);
+    if($(element).data('code') == false){
+      $(element).find('.library-code pre').css('visibility', 'hidden');
+    }
+	},
 
     loadHighlight: function(){
       $.getScript("http://yandex.st/highlightjs/7.3/highlight.min.js", function(){
