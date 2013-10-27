@@ -150,7 +150,14 @@ body, html {
 .library-code {
   background: #ecf0f1;
 }
-
+.library-section-divider {
+  background: #eee;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  font: bold 18px/1.3em 'Open Sans';
+  padding: 6px 0;
+  text-align: center;
+}
 .library-color-sample {
   display: inline-block;
   height: 60px;
