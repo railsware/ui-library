@@ -93,7 +93,7 @@ body, html {
   display: block;
   height: 0 !important;
   line-height: 0;
-  visibility: hidden; 
+  visibility: hidden;
 }
 
 .library-section {
@@ -108,7 +108,7 @@ body, html {
   height: 0;
   line-height: 0;
   clear: both;
-  visibility: hidden; 
+  visibility: hidden;
 }
 
 .library-section:first-child .library-preview:before, .library-section:first-child  .library-code:before {
@@ -132,6 +132,8 @@ body, html {
   float: left;
   padding: 30px 20px 10px 20px;
   box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   width: 50%;
 }
 
