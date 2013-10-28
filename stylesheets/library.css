@@ -2,7 +2,6 @@
 @import url("http://yandex.st/highlightjs/7.3/styles/github.min.css");
 @import url("reset.css");
 
-
 body, html {
   height: 100%;
 }
@@ -11,15 +10,25 @@ body, html {
 /*  Navigation
 /*==============================*/
 .library-navigation {
-  z-index: 100;
-  background: #2e3132;
-  height: 100%;
-  width: 220px;
   float: left;
   position: relative;
   margin-left: -220px;
   -webkit-transition: margin 0.4s ease;
   transition: margin 0.4s ease;
+  width: 220px;
+  z-index: 99;
+}
+
+.library-navigation:after {
+  content: ".";
+}
+
+.library-navigation-inner {
+  z-index: 100;
+  background: #2e3132;
+  height: 100%;
+  width: 220px;
+  position: fixed;
 }
 
 .library-navigation h1 {
@@ -80,6 +89,7 @@ body, html {
   display: table-cell;
   float: none;
   width: auto;
+  background: #fff;
   _margin-right: -3px;
   _left: -3px;
   _position: relative;
@@ -87,7 +97,7 @@ body, html {
   *zoom: 1;
 }
 
-.library-content:after {
+.library-content:after, .library-preview:after {
   content: " . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .";
   clear: both;
   display: block;
@@ -157,17 +167,20 @@ body, html {
   border-top: 1px solid #e0e0e0;
   border-bottom: 1px solid #e0e0e0;
   font: bold 18px/1.3em 'Open Sans';
-  padding: 6px 0;
+  padding: 16px 0 20px;
   text-align: center;
 }
 .library-color-sample {
-  display: inline-block;
+  display: block;
+  float: left;
   height: 60px;
   width: 60px;
-  padding: 10px;
-  margin-right: 10px;
+  padding: 20px;
+  margin: 0 10px 10px 0;
   font: 13px/1.3em 'Open Sans';
-  color: #fff;
+  color: rgba(255, 255, 255, .8);
+  text-align: center;
+  text-transform: uppercase;
 }
 
 /*=============================*/
