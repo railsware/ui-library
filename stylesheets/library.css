@@ -108,7 +108,7 @@ body, html {
 
 .library-section {
   position: relative;
-  border-bottom: 1px solid #eee;
+  display: table-row;
   *zoom: 1;
 }
 
@@ -139,20 +139,24 @@ body, html {
 }
 
 .library-preview, .library-code {
-  float: left;
-  padding: 30px 20px 10px 20px;
+/*  float: left;*/
+  padding: 30px 20px 20px 20px;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   width: 50%;
+  border-bottom: 1px solid #eee;
+  display: table-cell;
 }
 
 .library-section-label {
   font: 14px/1.3em 'Open Sans';
   color: #9aa1ad;
+  padding-top: .5em;
   position: absolute;
+  display: block;
   left: 20px;
-  top: 5px;
+/*  top: 5px;*/
 }
 
 .library-section:first-child .library-section-label {
