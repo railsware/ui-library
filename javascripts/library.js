@@ -17,7 +17,6 @@ $(document).ready(function(){
         content = Library.htmlClean($(this).html());
         Library.setupSection(this, content, $(this).data('label'));
         Library.codeSample(this, content);
-        $(this).css("min-height",$(this).height());
       });
     },
     
