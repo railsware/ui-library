@@ -161,6 +161,7 @@ body, html {
 
 .library-code {
   background: #ecf0f1;
+  min-height: 100%;
 }
 .library-section-divider {
   background: #eee;
