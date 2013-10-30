@@ -1,14 +1,16 @@
-@import url("http://fonts.googleapis.com/css?family=Open+Sans:400,700");
-@import url("http://yandex.st/highlightjs/7.3/styles/github.min.css");
-@import url("reset.css");
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+@import url(http://yandex.st/highlightjs/7.3/styles/github.min.css);
+* {
+  padding: 0;
+  margin: 0;
+  outline: none; }
 
 body, html {
-  height: 100%;
-}
+  height: 100%; }
 
-/*==============================*/
-/*  Navigation
-/*==============================*/
+/*============================== */
+/*  Navigation */
+/*============================== */
 .library-navigation {
   float: left;
   position: relative;
@@ -16,196 +18,152 @@ body, html {
   -webkit-transition: margin 0.4s ease;
   transition: margin 0.4s ease;
   width: 220px;
-  z-index: 99;
-}
+  z-index: 99; }
+  .library-navigation:after {
+    content: "."; }
+  .library-navigation.expanded {
+    margin-left: 0; }
+  .library-navigation h1 {
+    font: 16px/1.3em "Open Sans";
+    color: #13c0a0;
+    padding: 20px;
+    font-weight: 700; }
+  .library-navigation ul a {
+    font: 14px/1.3em "Open Sans";
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 2px 20px;
+    color: #9aa1a2;
+    text-decoration: none; }
+    .library-navigation ul a:hover {
+      background: #3a3a3a; }
+  .library-navigation .expander {
+    position: absolute;
+    display: block;
+    width: 24px;
+    height: 24px;
+    padding: 10px 8px 8px;
+    right: -40px;
+    top: 5px;
+    cursor: pointer;
+    background: #2e3132;
+    -webkit-border-radius: 0 4px 4px 0;
+    border-radius: 0 4px 4px 0; }
+    .library-navigation .expander:hover {
+      background: #333536; }
+    .library-navigation .expander span {
+      display: block;
+      height: 4px;
+      background: #9aa1a2;
+      margin-bottom: 5px;
+      border-radius: 3px; }
+  .library-navigation .library-navigation-inner {
+    z-index: 100;
+    background: #2e3132;
+    height: 100%;
+    width: 220px;
+    position: fixed; }
 
-.library-navigation:after {
-  content: ".";
-}
-
-.library-navigation-inner {
-  z-index: 100;
-  background: #2e3132;
-  height: 100%;
-  width: 220px;
-  position: fixed;
-}
-
-.library-navigation h1 {
-  font: 16px/1.3em 'Open Sans';
-  color: #13c0a0;
-  padding: 20px;
-  font-weight: 700;
-}
-
-.library-navigation ul a {
-  font: 14px/1.3em 'Open Sans';
-  display: block;
-  font-size: 14px;
-  font-weight: 700;
-  padding: 2px 20px;
-  color: #9aa1a2;
-  text-decoration: none;
-}
-
-.library-navigation ul a:hover {
-  background: #3a3a3a
-}
-
-.library-navigation .expander {
-  position: absolute;
-  display: block;
-  width: 24px;
-  height: 24px;
-  padding: 10px 8px 8px;
-  right: -40px;
-  top: 5px;
-  cursor: pointer;
-  background: #2e3132;
-  -webkit-border-radius: 0 4px 4px 0;
-  border-radius: 0 4px 4px 0;
-}
-
-.library-navigation .expander:hover {
-  background: #333536;
-}
-
-.library-navigation .expander span {
-  display: block;
-  height: 4px;
-  background: #9aa1a2;
-  margin-bottom: 5px;
-  border-radius: 3px;
-}
-
-.library-navigation.expanded {
-  margin-left: 0;
-}
-
-/*=================================*/
-/*  Structure
-/*=================================*/
+/*================================= */
+/*  Structure */
+/*================================= */
 .library-content {
-  display: table-cell;
+  display: table;
   float: none;
   width: auto;
-  background: #fff;
+  background: white;
   _margin-right: -3px;
   _left: -3px;
   _position: relative;
-  *display: block;
-  *zoom: 1;
-}
-
-.library-content:after, .library-preview:after {
-  content: " . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .";
-  clear: both;
-  display: block;
-  height: 0 !important;
-  line-height: 0;
-  visibility: hidden;
-}
+  *display: block; }
+  .library-content:after {
+    content: " . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .";
+    clear: both;
+    display: block;
+    height: 0 !important;
+    line-height: 0;
+    visibility: hidden; }
+  .library-content.no-code .library-section {
+    background: transparent; }
+  .library-content.no-code .library-preview {
+    width: 100%;
+    float: none; }
+  .library-content.no-code .library-code {
+    display: none; }
 
 .library-section {
   position: relative;
-  display: table-row;
-  *zoom: 1;
-}
-
-.library-section:after {
-  content: ".";
-  display: block;
-  height: 0;
-  line-height: 0;
-  clear: both;
-  visibility: hidden;
-}
-
-.library-section:first-child .library-preview:before, .library-section:first-child  .library-code:before {
-  display: block;
-  color: #bfcbce;
-  text-align: right;
-  padding: 0 20px 20px 20px;
-  margin-bottom: 20px;
-  font: 13px/1.3em 'Open Sans';
-}
-
-.library-section:first-child  .library-preview:before {
-  content: 'PREVIEW';
-}
-
-.library-section:first-child  .library-code:before {
-  content: 'CODE';
-}
+  background-image: linear-gradient(left, rgba(255, 255, 255, 0) 50%, #ecf0f1 50%);
+  background-image: -o-linear-gradient(left, rgba(255, 255, 255, 0) 50%, #ecf0f1 50%);
+  background-image: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 50%, #ecf0f1 50%);
+  background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 50%, #ecf0f1 50%);
+  background-image: -ms-linear-gradient(left, rgba(255, 255, 255, 0) 50%, #ecf0f1 50%);
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(0.5, rgba(255, 255, 255, 0)), color-stop(0.5, #ecf0f1));
+  border-bottom: 1px solid #eeeeee; }
+  .library-section:after {
+    content: ".";
+    display: block;
+    height: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden; }
+  .library-section:first-child .library-preview:before, .library-section:first-child .library-code:before {
+    display: block;
+    color: #bfcbce;
+    text-align: right;
+    padding: 0 20px 20px 20px;
+    margin-bottom: 20px;
+    font: 13px/1.3em "Open Sans"; }
+  .library-section:first-child .library-preview:before {
+    content: "PREVIEW"; }
+  .library-section:first-child .library-code:before {
+    content: "CODE"; }
+  .library-section:first-child .library-section-label {
+    top: 60px; }
 
 .library-preview, .library-code {
-/*  float: left;*/
   padding: 30px 20px 20px 20px;
   box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   width: 50%;
-  border-bottom: 1px solid #ddd;
-  display: table-cell;
-}
+  float: left; }
 
 .library-section-label {
-  font: 14px/1.3em 'Open Sans';
-  color: #9aa1ad;
-  padding-top: .5em;
   position: absolute;
-  display: block;
   left: 20px;
-/*  top: 5px;*/
-}
+  top: 10px;
+  font: 13px/1.3em "Open Sans";
+  color: #9aa1ad; }
 
-.library-section:first-child .library-section-label {
-  top: 60px;
-}
-
-.library-code {
-  background: #ecf0f1;
-  min-height: 100%;
-}
 .library-section-divider {
-  background: #eee;
-  border-top: 1px solid #e0e0e0;
-  border-bottom: 1px solid #e0e0e0;
-  font: bold 18px/1.3em 'Open Sans';
-  padding: 16px 0 20px;
-  text-align: center;
-  position: relative;
-  z-index: 21;
-  box-shadow: 1px 1px 0 rgba(0,0,0,.2);
-}
+  background: rgba(200, 200, 200, 0.08);
+  border-bottom: 1px solid #eeeeee;
+  font: 16px/1.3em "Open Sans";
+  color: #9aa1ad;
+  padding: 5px 0 5px;
+  text-align: center; }
+
 .library-color-sample {
-  display: block;
-  float: left;
-  height: 60px;
-  width: 60px;
-  padding: 20px;
+  display: inline-block;
+  height: 70px;
+  width: 70px;
+  padding: 10px;
   margin: 0 10px 10px 0;
-  font: 13px/1.3em 'Open Sans';
-  color: rgba(255, 255, 255, .8);
+  font: 13px/1.3em "Open Sans";
+  color: rgba(255, 255, 255, 0.8);
   text-align: center;
-  text-transform: uppercase;
-}
+  text-transform: uppercase; }
 
-/*=============================*/
-/* Code Highlight
-/*=============================*/
-
+/*============================= */
+/* Code Highlight */
+/*============================= */
 pre {
   max-width: 100%;
-  white-space: pre-wrap;
-}
+  white-space: pre-wrap; }
 
 code {
-  max-width: 100%;
-}
+  max-width: 100%; }
 
 pre code {
-  font: 12px/1.3em 'Monaco';
-/*  white-space: pre-line;*/
-  padding: .5em 1em;
-}
+  font: 12px/1.3em "Monaco";
+  padding: 0.5em 1em; }

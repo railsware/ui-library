@@ -1,0 +1,174 @@
+@import "http://fonts.googleapis.com/css?family=Open+Sans:400,700"
+@import "http://yandex.st/highlightjs/7.3/styles/github.min.css"
+
+*
+  padding: 0
+  margin: 0
+  outline: none
+  
+body, html 
+  height: 100%
+
+/*==============================*/
+/*  Navigation
+/*==============================*/
+.library-navigation 
+  float: left
+  position: relative
+  margin-left: -220px
+  -webkit-transition: margin 0.4s ease
+  transition: margin 0.4s ease
+  width: 220px
+  z-index: 99
+  &:after 
+    content: "."
+  &.expanded 
+    margin-left: 0
+  h1 
+    font: 16px/1.3em 'Open Sans'
+    color: #13c0a0
+    padding: 20px
+    font-weight: 700
+  ul a 
+    font: 14px/1.3em 'Open Sans'
+    display: block
+    font-size: 14px
+    font-weight: 700
+    padding: 2px 20px
+    color: #9aa1a2
+    text-decoration: none
+    &:hover 
+      background: #3a3a3a
+  .expander 
+    position: absolute
+    display: block
+    width: 24px
+    height: 24px
+    padding: 10px 8px 8px
+    right: -40px
+    top: 5px
+    cursor: pointer
+    background: #2e3132
+    -webkit-border-radius: 0 4px 4px 0
+    border-radius: 0 4px 4px 0
+    &:hover 
+      background: #333536
+    span 
+      display: block
+      height: 4px
+      background: #9aa1a2
+      margin-bottom: 5px
+      border-radius: 3px
+
+  .library-navigation-inner 
+    z-index: 100
+    background: #2e3132
+    height: 100%
+    width: 220px
+    position: fixed
+
+
+/*=================================*/
+/*  Structure
+/*=================================*/
+.library-content 
+  display: table
+  float: none
+  width: auto
+  background: #fff
+  _margin-right: -3px
+  _left: -3px
+  _position: relative
+  *display: block
+  &:after
+    content: " . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
+    clear: both
+    display: block
+    height: 0 !important
+    line-height: 0
+    visibility: hidden
+  &.no-code
+    .library-section
+      background: transparent
+    .library-preview
+      width: 100%
+      float: none
+    .library-code
+      display: none
+
+.library-section
+  position: relative
+  background-image: linear-gradient(left , rgba(255,255,255, 0) 50%, rgb(236,240,241) 50%)
+  background-image: -o-linear-gradient(left , rgba(255,255,255, 0) 50%, rgb(236,240,241) 50%)
+  background-image: -moz-linear-gradient(left , rgba(255,255,255, 0) 50%, rgb(236,240,241) 50%)
+  background-image: -webkit-linear-gradient(left , rgba(255,255,255, 0) 50%, rgb(236,240,241) 50%)
+  background-image: -ms-linear-gradient(left , rgba(255,255,255, 0) 50%, rgb(236,240,241) 50%)
+  background-image: -webkit-gradient(linear,left top,right top,color-stop(0.5, rgba(255,255,255, 0)),color-stop(0.5, rgb(236,240,241)))
+  border-bottom: 1px solid #eee
+  &:after 
+    content: "."
+    display: block
+    height: 0
+    line-height: 0
+    clear: both
+    visibility: hidden
+  &:first-child .library-preview:before, &:first-child  .library-code:before 
+    display: block
+    color: #bfcbce
+    text-align: right
+    padding: 0 20px 20px 20px
+    margin-bottom: 20px
+    font: 13px/1.3em 'Open Sans'
+  &:first-child  .library-preview:before 
+    content: 'PREVIEW'
+  &:first-child  .library-code:before 
+    content: 'CODE'
+  &:first-child .library-section-label 
+    top: 60px
+  
+.library-preview, .library-code 
+  padding: 30px 20px 20px 20px
+  box-sizing: border-box
+  width: 50%
+  float: left
+
+.library-section-label 
+  position: absolute
+  left: 20px
+  top: 10px
+  font: 13px/1.3em 'Open Sans'
+  color: #9aa1ad
+
+.library-section-divider 
+  background: rgba(200, 200, 200, 0.08)
+  border-bottom: 1px solid #eee
+  font: 16px/1.3em 'Open Sans'
+  color: #9aa1ad
+  padding: 5px 0 5px
+  text-align: center
+
+.library-color-sample 
+  display: inline-block
+  height: 70px
+  width: 70px
+  padding: 10px
+  margin: 0 10px 10px 0
+  font: 13px/1.3em 'Open Sans'
+  color: rgba(255, 255, 255, .8)
+  text-align: center
+  text-transform: uppercase
+
+/*=============================*/
+/* Code Highlight
+/*=============================*/
+
+pre 
+  max-width: 100%
+  white-space: pre-wrap
+
+code 
+  max-width: 100%
+
+pre code 
+  font: 12px/1.3em 'Monaco'
+  padding: .5em 1em
