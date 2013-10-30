@@ -1,5 +1,5 @@
 @import url("http://fonts.googleapis.com/css?family=Open+Sans:400,700");
-@import url("http://yandex.st/highlightjs/7.3/styles/vs.min.css");
+@import url("http://yandex.st/highlightjs/7.3/styles/github.min.css");
 @import url("reset.css");
 
 body, html {
@@ -145,7 +145,7 @@ body, html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   width: 50%;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #ddd;
   display: table-cell;
 }
 
