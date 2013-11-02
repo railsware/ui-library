@@ -1,5 +1,4 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
-@import url(http://yandex.st/highlightjs/7.3/styles/github.min.css);
 * {
   padding: 0;
   margin: 0;
@@ -107,14 +106,11 @@ body, html {
   .library-content.no-code .library-code {
     display: none; }
 
+.library-code {
+  background: #ecf0f1; }
+
 .library-section {
   position: relative;
-  background-image: linear-gradient(left, rgba(255, 255, 255, 0) 50%, #ecf0f1 50%);
-  background-image: -o-linear-gradient(left, rgba(255, 255, 255, 0) 50%, #ecf0f1 50%);
-  background-image: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 50%, #ecf0f1 50%);
-  background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 50%, #ecf0f1 50%);
-  background-image: -ms-linear-gradient(left, rgba(255, 255, 255, 0) 50%, #ecf0f1 50%);
-  background-image: -webkit-gradient(linear, left top, right top, color-stop(0.5, rgba(255, 255, 255, 0)), color-stop(0.5, #ecf0f1));
   border-bottom: 1px solid #eeeeee; }
   .library-section:after {
     content: ".";
@@ -181,4 +177,64 @@ code {
 
 pre code {
   font: 12px/1.3em "Monaco";
+  display: block;
+  color: #666666;
+  background: #f9f9ff;
   padding: 0.5em 1em; }
+
+pre .comment, pre .template_comment, pre .diff .header, pre .javadoc {
+  color: #999988;
+  font-style: italic; }
+
+pre .keyword, pre .css .rule .keyword, pre .winutils, pre .javascript .title, pre .nginx .title, pre .subst, pre .request, pre .status {
+  color: #333333;
+  font-weight: 700; }
+
+pre .number, pre .hexcolor, pre .ruby .constant {
+  color: #009999; }
+
+pre .string, pre .tag .value, pre .phpdoc, pre .tex .formula {
+  color: #dd1144; }
+
+pre .title, pre .id {
+  color: #990000;
+  font-weight: 700; }
+
+pre .javascript .title, pre .lisp .title, pre .clojure .title, pre .subst {
+  font-weight: 400; }
+
+pre .tag, pre .tag .title, pre .rules .property, pre .django .tag .keyword {
+  color: #0d0dc0;
+  font-weight: 400; }
+
+pre .attribute, pre .variable, pre .lisp .body {
+  color: teal; }
+
+pre .regexp {
+  color: #009926; }
+
+pre .symbol, pre .ruby .symbol .string, pre .lisp .keyword, pre .tex .special, pre .prompt {
+  color: #990073; }
+
+pre .built_in, pre .lisp .title, pre .clojure .built_in {
+  color: #0086b3; }
+
+pre .preprocessor, pre .pi, pre .doctype, pre .shebang, pre .cdata {
+  color: #999999;
+  font-weight: 700; }
+
+pre .deletion {
+  background: #ffdddd; }
+
+pre .addition {
+  background: #ddffdd; }
+
+pre .diff .change {
+  background: #0086b3; }
+
+pre .chunk {
+  color: #aaaaaa; }
+
+pre .class .title, pre .haskell .type, pre .vhdl .literal, pre .tex .command, pre .class {
+  color: #445588;
+  font-weight: 700; }

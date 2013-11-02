@@ -20,7 +20,8 @@
         var content;
         content = _this.htmlClean($(element).html());
         _this.setupSection(element, content, $(element).data('label'));
-        return _this.codeSample(element, content);
+        _this.codeSample(element, content);
+        return _this.fixHeights(element);
       });
     };
 
@@ -44,6 +45,15 @@
         hljs.tabReplace = '  ';
         return hljs.initHighlightingOnLoad();
       });
+    };
+
+    Library.prototype.fixHeights = function(element) {
+      var code, preview;
+      preview = $(element).find('.library-preview');
+      code = $(element).find('.library-code');
+      if ($(preview).height() > $(code).height()) {
+        return $(code).height($(preview).height());
+      }
     };
 
     Library.prototype.htmlClean = function(html) {

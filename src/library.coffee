@@ -7,12 +7,14 @@ class window.Library
       $('.library-navigation').toggleClass('expanded')
     $('.library-code-switch').click ->
       $('.library-content').toggleClass('no-code')
+
   buildSections: ->
     $(".library-section").each (i, element) =>
       content = @htmlClean($(element).html())
       @setupSection(element, content, $(element).data('label'))
       @codeSample(element, content)
-      
+      @fixHeights(element)
+
   setupSection: (element, content, label) ->
     $(element).html("<div class='library-preview'>")
     $(element).find('.library-preview').html(content)
@@ -23,11 +25,17 @@ class window.Library
     $(element).find('.library-code').html('<pre><code></code></pre>')
     $(element).find('.library-code pre code').text(content)
     $(element).find('.library-code pre').css('visibility', 'hidden') if($(element).data('code') == false)
-    
+
   loadHighlight: ->
     $.getScript "http://yandex.st/highlightjs/7.3/highlight.min.js", ->
       hljs.tabReplace = '  '
       hljs.initHighlightingOnLoad()
+
+  fixHeights: (element) ->
+    preview = $(element).find('.library-preview')
+    code = $(element).find('.library-code')
+    if $(preview).height() > $(code).height()
+      $(code).height($(preview).height())
 
   htmlClean: (html) ->
     html = html.replace(/(\r\n|\n|\r)/,'')
