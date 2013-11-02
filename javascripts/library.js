@@ -9,6 +9,9 @@
       $('.library-navigation .expander').click(function() {
         return $('.library-navigation').toggleClass('expanded');
       });
+      $('.library-code-switch').click(function() {
+        return $('.library-content').toggleClass('no-code');
+      });
     }
 
     Library.prototype.buildSections = function() {

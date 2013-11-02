@@ -65,6 +65,21 @@ body, html {
     width: 220px;
     position: fixed; }
 
+.library-code-switch {
+  position: fixed;
+  padding: 4px 8px 6px 8px;
+  background: rgba(100, 100, 100, 0.4);
+  -webkit-border-radius: 0 0 4px 4px;
+  border-radius: 0 0 4px 4px;
+  right: 20px;
+  top: 0px;
+  color: white;
+  cursor: pointer;
+  font-size: 13px;
+  z-index: 100; }
+  .library-code-switch:hover {
+    background: rgba(100, 100, 100, 0.5); }
+
 /*================================= */
 /*  Structure */
 /*================================= */

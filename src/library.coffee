@@ -5,7 +5,8 @@ class window.Library
       @loadHighlight()
     $('.library-navigation .expander').click ->
       $('.library-navigation').toggleClass('expanded')
-      
+    $('.library-code-switch').click ->
+      $('.library-content').toggleClass('no-code')
   buildSections: ->
     $(".library-section").each (i, element) =>
       content = @htmlClean($(element).html())
