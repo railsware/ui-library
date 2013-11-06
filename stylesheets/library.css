@@ -2,10 +2,12 @@
 * {
   padding: 0;
   margin: 0;
-  outline: none; }
+  outline: none;
+}
 
 body, html {
-  height: 100%; }
+  height: 100%;
+}
 
 /*============================== */
 /*  Navigation */
@@ -17,55 +19,63 @@ body, html {
   -webkit-transition: margin 0.4s ease;
   transition: margin 0.4s ease;
   width: 220px;
-  z-index: 99; }
-  .library-navigation:after {
-    content: "."; }
-  .library-navigation.expanded {
-    margin-left: 0; }
-  .library-navigation h1 {
-    font: 16px/1.3em "Open Sans";
-    color: #13c0a0;
-    padding: 20px;
-    font-weight: 700; }
-  .library-navigation ul a {
-    font: 14px/1.3em "Open Sans";
-    display: block;
-    font-weight: 700;
-    padding: 2px 20px;
-    color: #9aa1a2;
-    text-decoration: none; }
-    .library-navigation ul a:hover {
-      background: #3a3a3a; }
-  .library-navigation .expander {
-    position: absolute;
-    display: block;
-    width: 24px;
-    height: 24px;
-    padding: 10px 8px 8px;
-    right: -40px;
-    top: 5px;
-    cursor: pointer;
-    background: #2e3132;
-    -webkit-border-radius: 0 4px 4px 0;
-    border-radius: 0 4px 4px 0; }
-    .library-navigation .expander:hover {
-      background: #333536; }
-    .library-navigation .expander span {
-      display: block;
-      height: 4px;
-      background: #9aa1a2;
-      margin-bottom: 5px;
-      border-radius: 3px; }
-  .library-navigation .library-navigation-inner {
-    z-index: 100;
-    background: #2e3132;
-    height: 100%;
-    width: 220px;
-    position: fixed; }
-  .library-navigation .submenu {
-    padding-left: 10px; }
-    .library-navigation .submenu a {
-      font-size: 12px;}
+  z-index: 99;
+}
+.library-navigation:after {
+  content: ".";
+}
+.library-navigation.expanded {
+  margin-left: 0;
+}
+.library-navigation h1 {
+  font: 16px/1.3em "Open Sans";
+  color: #13c0a0;
+  padding: 20px;
+  font-weight: 700;
+}
+.library-navigation ul a {
+  font: 14px/1.3em "Open Sans";
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 2px 20px;
+  color: #9aa1a2;
+  text-decoration: none;
+}
+.library-navigation ul a:hover {
+  background: #3a3a3a;
+}
+.library-navigation .expander {
+  position: absolute;
+  display: block;
+  width: 24px;
+  height: 24px;
+  padding: 10px 8px 8px;
+  right: -40px;
+  top: 5px;
+  cursor: pointer;
+  background: #2e3132;
+  -webkit-border-radius: 0 4px 4px 0;
+  border-radius: 0 4px 4px 0;
+}
+.library-navigation .expander:hover {
+  background: #333536;
+}
+.library-navigation .expander span {
+  display: block;
+  height: 4px;
+  background: #9aa1a2;
+  margin-bottom: 5px;
+  border-radius: 3px;
+}
+.library-navigation .library-navigation-inner {
+  z-index: 100;
+  background: #2e3132;
+  height: 100%;
+  width: 220px;
+  position: fixed;
+}
+>>>>>>> 27a4646a15d155bafee36e0bf758494231ef12db
 
 .library-code-switch {
   position: fixed;
@@ -78,9 +88,11 @@ body, html {
   color: white;
   cursor: pointer;
   font-size: 13px;
-  z-index: 100; }
-  .library-code-switch:hover {
-    background: rgba(100, 100, 100, 0.5); }
+  z-index: 100;
+}
+.library-code-switch:hover {
+  background: rgba(100, 100, 100, 0.5);
+}
 
 /*================================= */
 /*  Structure */
@@ -93,61 +105,79 @@ body, html {
   _margin-right: -3px;
   _left: -3px;
   _position: relative;
-  *display: block; }
-  .library-content:after {
-    content: " . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .";
-    clear: both;
-    display: block;
-    height: 0 !important;
-    line-height: 0;
-    visibility: hidden; }
-  .library-content.no-code .library-section {
-    background: transparent; }
-  .library-content.no-code .library-preview {
-    width: 100%;
-    float: none; }
-  .library-content.no-code .library-code {
-    display: none; }
+  *display: block;
+}
+.library-content:after {
+  content: " . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .";
+  clear: both;
+  display: block;
+  height: 0 !important;
+  line-height: 0;
+  visibility: hidden;
+}
+.library-content.no-code .library-section {
+  background: transparent;
+}
+.library-content.no-code .library-preview {
+  width: 100%;
+  float: none;
+}
+.library-content.no-code .library-code {
+  display: none;
+}
 
 .library-code {
-  background: #ecf0f1; }
+  background: #ecf0f1;
+}
 
 .library-section {
   position: relative;
-  border-bottom: 1px solid #eeeeee; }
-  .library-section:after {
-    content: ".";
-    display: block;
-    height: 0;
-    line-height: 0;
-    clear: both;
-    visibility: hidden; }
-  .library-section:first-child .library-preview:before, .library-section:first-child .library-code:before {
-    display: block;
-    color: #bfcbce;
-    text-align: right;
-    padding: 0 20px 20px 20px;
-    margin-bottom: 20px;
-    font: 13px/1.3em "Open Sans"; }
-  .library-section:first-child .library-preview:before {
-    content: "PREVIEW"; }
-  .library-section:first-child .library-code:before {
-    content: "CODE"; }
-  .library-section:first-child .library-section-label {
-    top: 60px; }
+  border-bottom: 1px solid #eeeeee;
+}
+.library-section:after {
+  content: ".";
+  display: block;
+  height: 0;
+  line-height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.library-section:first-child .library-preview:before, .library-section:first-child .library-code:before {
+  display: block;
+  color: #bfcbce;
+  text-align: right;
+  padding: 0 20px 20px 20px;
+  margin-bottom: 20px;
+  font: 13px/1.3em "Open Sans";
+}
+.library-section:first-child .library-preview:before {
+  content: "PREVIEW";
+}
+.library-section:first-child .library-code:before {
+  content: "CODE";
+}
+.library-section:first-child .library-section-label {
+  top: 60px;
+}
 
 .library-preview, .library-code {
   padding: 30px 20px 20px 20px;
   box-sizing: border-box;
   width: 50%;
-  float: left; }
+  float: left;
+}
+
+.library-preview {
+  padding-left: 60px;
+}
 
 .library-section-label {
   position: absolute;
-  left: 20px;
+  left: 60px;
   top: 10px;
   font: 13px/1.3em "Open Sans";
-  color: #9aa1ad; }
+  color: #9aa1ad;
+}
 
 .library-section-divider {
   background: rgba(200, 200, 200, 0.08);
@@ -155,7 +185,8 @@ body, html {
   font: 16px/1.3em "Open Sans";
   color: #9aa1ad;
   padding: 5px 0 5px;
-  text-align: center; }
+  text-align: center;
+}
 
 .library-color-sample {
   display: inline-block;
@@ -166,78 +197,99 @@ body, html {
   font: 13px/1.3em "Open Sans";
   color: rgba(255, 255, 255, 0.8);
   text-align: center;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+}
 
 /*============================= */
 /* Code Highlight */
 /*============================= */
 pre {
   max-width: 100%;
-  white-space: pre-wrap; }
+  white-space: pre-wrap;
+}
 
 code {
-  max-width: 100%; }
+  max-width: 100%;
+}
 
 pre code {
   font: 12px/1.3em "Monaco";
   display: block;
   color: #666666;
   background: #f9f9ff;
-  padding: 0.5em 1em; }
+  padding: 0.5em 1em;
+}
 
 pre .comment, pre .template_comment, pre .diff .header, pre .javadoc {
   color: #999988;
-  font-style: italic; }
+  font-style: italic;
+}
 
 pre .keyword, pre .css .rule .keyword, pre .winutils, pre .javascript .title, pre .nginx .title, pre .subst, pre .request, pre .status {
   color: #333333;
-  font-weight: 700; }
+  font-weight: 700;
+}
 
 pre .number, pre .hexcolor, pre .ruby .constant {
-  color: #009999; }
+  color: #009999;
+}
 
 pre .string, pre .tag .value, pre .phpdoc, pre .tex .formula {
-  color: #dd1144; }
+  color: #dd1144;
+}
 
 pre .title, pre .id {
   color: #990000;
-  font-weight: 700; }
+  font-weight: 700;
+}
 
 pre .javascript .title, pre .lisp .title, pre .clojure .title, pre .subst {
-  font-weight: 400; }
+  font-weight: 400;
+}
 
 pre .tag, pre .tag .title, pre .rules .property, pre .django .tag .keyword {
   color: #0d0dc0;
-  font-weight: 400; }
+  font-weight: 400;
+}
 
 pre .attribute, pre .variable, pre .lisp .body {
-  color: teal; }
+  color: teal;
+}
 
 pre .regexp {
-  color: #009926; }
+  color: #009926;
+}
 
 pre .symbol, pre .ruby .symbol .string, pre .lisp .keyword, pre .tex .special, pre .prompt {
-  color: #990073; }
+  color: #990073;
+}
 
 pre .built_in, pre .lisp .title, pre .clojure .built_in {
-  color: #0086b3; }
+  color: #0086b3;
+}
 
 pre .preprocessor, pre .pi, pre .doctype, pre .shebang, pre .cdata {
   color: #999999;
-  font-weight: 700; }
+  font-weight: 700;
+}
 
 pre .deletion {
-  background: #ffdddd; }
+  background: #ffdddd;
+}
 
 pre .addition {
-  background: #ddffdd; }
+  background: #ddffdd;
+}
 
 pre .diff .change {
-  background: #0086b3; }
+  background: #0086b3;
+}
 
 pre .chunk {
-  color: #aaaaaa; }
+  color: #aaaaaa;
+}
 
 pre .class .title, pre .haskell .type, pre .vhdl .literal, pre .tex .command, pre .class {
   color: #445588;
-  font-weight: 700; }
+  font-weight: 700;
+}
