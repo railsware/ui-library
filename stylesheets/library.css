@@ -30,7 +30,6 @@ body, html {
   .library-navigation ul a {
     font: 14px/1.3em "Open Sans";
     display: block;
-    font-size: 14px;
     font-weight: 700;
     padding: 2px 20px;
     color: #9aa1a2;
@@ -63,6 +62,10 @@ body, html {
     height: 100%;
     width: 220px;
     position: fixed; }
+  .library-navigation .submenu {
+    padding-left: 10px; }
+    .library-navigation .submenu a {
+      font-size: 12px;}
 
 .library-code-switch {
   position: fixed;
