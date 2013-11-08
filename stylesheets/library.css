@@ -98,6 +98,7 @@ body, html {
 /*  Structure */
 /*================================= */
 .library-content {
+  overflow: hidden;
   display: table-cell;
   float: none;
   width: auto;
@@ -120,8 +121,7 @@ body, html {
     margin-right: -50%; }
 
 .library-section {
-  *zoom: 1;
-  overflow-x: hidden; }
+  *zoom: 1; }
   .library-section:after {
     content: ".";
     display: block;
