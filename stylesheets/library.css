@@ -1,13 +1,17 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+/*============================== */
+/*  Mixins */
+/*============================== */
+/*============================== */
+/*  Reset */
+/*============================== */
 * {
   padding: 0;
   margin: 0;
-  outline: none;
-}
+  outline: none; }
 
 body, html {
-  height: 100%;
-}
+  height: 100%; }
 
 /*============================== */
 /*  Navigation */
@@ -17,278 +21,229 @@ body, html {
   position: relative;
   margin-left: -220px;
   -webkit-transition: margin 0.4s ease;
+  -moz-transition: margin 0.4s ease;
+  -o-transition: margin 0.4s ease;
   transition: margin 0.4s ease;
-  width: 220px;
-  z-index: 99;
-}
-.library-navigation:after {
-  content: ".";
-}
-.library-navigation.expanded {
-  margin-left: 0;
-}
-.library-navigation h1 {
-  font: 16px/1.3em "Open Sans";
-  color: #13c0a0;
-  padding: 20px;
-  font-weight: 700;
-}
-.library-navigation ul a {
-  font: 14px/1.3em "Open Sans";
-  display: block;
-  font-size: 14px;
-  font-weight: 700;
-  padding: 2px 20px;
-  color: #9aa1a2;
-  text-decoration: none;
-}
-.library-navigation ul a:hover {
-  background: #3a3a3a;
-}
-.library-navigation .expander {
-  position: absolute;
+  width: 220px; }
+  .library-navigation:after {
+    content: "."; }
+  .library-navigation h1 {
+    font: 400 16px/1.62em "Open Sans";
+    color: #9aa1a2;
+    padding: 20px; }
+  .library-navigation ul a {
+    font: 400 16px/1.62em "Open Sans";
+    display: block;
+    font-size: 14px;
+    padding: 2px 20px;
+    color: #9aa1a2;
+    text-decoration: none; }
+    .library-navigation ul a:hover {
+      color: #3a3a3a; }
+  .library-navigation .expander {
+    position: absolute;
+    right: -50px;
+    top: 20px; }
+    .library-navigation .expander span {
+      display: block;
+      height: 4px;
+      background: #9aa1a2;
+      margin: 1px 0 4px 1px;
+      border-radius: 3px; }
+  .library-navigation .library-navigation-inner {
+    z-index: 100;
+    background: #ecf0f1;
+    height: 100%;
+    width: 220px;
+    position: fixed; }
+  .library-navigation.expanded {
+    margin-left: 0;
+    -webkit-transition: all 0.6s;
+    -moz-transition: all 0.6s;
+    -o-transition: all 0.6s;
+    transition: all 0.6s; }
+    .library-navigation.expanded .expander {
+      right: -20px;
+      -webkit-transition: all 0.3s;
+      -moz-transition: all 0.3s;
+      -o-transition: all 0.3s;
+      transition: all 0.3s; }
+
+.library-navigation .expander, .library-code-switch {
   display: block;
   width: 24px;
   height: 24px;
   padding: 10px 8px 8px;
-  right: -40px;
-  top: 5px;
   cursor: pointer;
-  background: #2e3132;
-  -webkit-border-radius: 0 4px 4px 0;
-  border-radius: 0 4px 4px 0;
-}
-.library-navigation .expander:hover {
-  background: #333536;
-}
-.library-navigation .expander span {
-  display: block;
-  height: 4px;
-  background: #9aa1a2;
-  margin-bottom: 5px;
-  border-radius: 3px;
-}
-.library-navigation .library-navigation-inner {
-  z-index: 100;
-  background: #2e3132;
-  height: 100%;
-  width: 220px;
-  position: fixed;
-}
+  background: #ecf0f1;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s; }
+  .library-navigation .expander:hover, .library-code-switch:hover {
+    background: #d6dbdc; }
 
 .library-code-switch {
   position: fixed;
-  padding: 4px 8px 6px 8px;
-  background: rgba(100, 100, 100, 0.4);
-  -webkit-border-radius: 0 0 4px 4px;
-  border-radius: 0 0 4px 4px;
+  padding: 10px 8px 6px 10px;
+  top: 20px;
   right: 20px;
-  top: 0px;
-  color: white;
-  cursor: pointer;
-  font-size: 13px;
-  z-index: 100;
-}
-.library-code-switch:hover {
-  background: rgba(100, 100, 100, 0.5);
-}
+  color: #9aa1a2; }
 
 /*================================= */
 /*  Structure */
 /*================================= */
 .library-content {
-  display: table;
+  display: table-cell;
   float: none;
   width: auto;
-  background: white;
   _margin-right: -3px;
   _left: -3px;
   _position: relative;
   *display: block;
-}
-.library-content:after {
-  content: " . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .";
-  clear: both;
-  display: block;
-  height: 0 !important;
-  line-height: 0;
-  visibility: hidden;
-}
-.library-content.no-code .library-section {
-  background: transparent;
-}
-.library-content.no-code .library-preview {
-  width: 100%;
-  float: none;
-}
-.library-content.no-code .library-code {
-  display: none;
-}
-
-.library-code {
-  background: #ecf0f1;
-}
+  *zoom: 1; }
+  .library-content:after {
+    content: " . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .";
+    clear: both;
+    display: block;
+    height: 0 !important;
+    line-height: 0;
+    visibility: hidden; }
+  .library-content.no-code .library-preview {
+    width: 100%;
+    float: none; }
+  .library-content.no-code .library-code {
+    display: none; }
 
 .library-section {
-  position: relative;
-  border-bottom: 1px solid #eeeeee;
-}
-.library-section:after {
-  content: ".";
-  display: block;
-  height: 0;
-  line-height: 0;
-  clear: both;
-  visibility: hidden;
-}
-.library-section:first-child .library-preview:before, .library-section:first-child .library-code:before {
-  display: block;
-  color: #bfcbce;
-  text-align: right;
-  padding: 0 20px 20px 20px;
-  margin-bottom: 20px;
-  font: 13px/1.3em "Open Sans";
-}
-.library-section:first-child .library-preview:before {
-  content: "PREVIEW";
-}
-.library-section:first-child .library-code:before {
-  content: "CODE";
-}
-.library-section:first-child .library-section-label {
-  top: 60px;
-}
+  *zoom: 1; }
+  .library-section:after {
+    content: ".";
+    display: block;
+    height: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden; }
+  .library-section[data-code='false'] .library-preview {
+    width: 100%;
+    float: none; }
 
 .library-preview, .library-code {
-  padding: 30px 20px 20px 20px;
+  padding: 0 20px 20px 20px;
   box-sizing: border-box;
   width: 50%;
-  float: left;
-}
+  float: left; }
 
 .library-preview {
   padding-left: 60px;
-}
+  padding-right: 60px; }
 
 .library-section-label {
-  position: absolute;
-  left: 60px;
-  top: 10px;
-  font: 13px/1.3em "Open Sans";
-  color: #9aa1ad;
-}
+  display: block;
+  font: 200 18px/1.62em "Open Sans";
+  color: #d6dbdc;
+  padding: 10px 60px; }
 
 .library-section-divider {
-  background: rgba(200, 200, 200, 0.08);
-  border-bottom: 1px solid #eeeeee;
-  font: 16px/1.3em "Open Sans";
-  color: #9aa1ad;
-  padding: 5px 0 5px;
-  text-align: center;
-}
+  font: 200 32px/1.62em "Open Sans";
+  color: #d6dbdc;
+  padding: 16px 0 20px 60px;
+  border-bottom: 3px solid #ecf0f1; }
 
 .library-color-sample {
   display: inline-block;
-  height: 70px;
-  width: 70px;
+  height: 120px;
+  width: 120px;
   padding: 10px;
   margin: 0 10px 10px 0;
   font: 13px/1.3em "Open Sans";
   color: rgba(255, 255, 255, 0.8);
   text-align: center;
-  text-transform: uppercase;
-}
+  text-transform: uppercase; }
 
 /*============================= */
 /* Code Highlight */
 /*============================= */
 pre {
   max-width: 100%;
-  white-space: pre-wrap;
-}
+  white-space: pre-wrap; }
 
 code {
+  font: 13px/1.4em "Monaco";
   max-width: 100%;
-}
-
-pre code {
-  font: 12px/1.3em "Monaco";
+  border: 1px dotted #eaeaea;
+  padding: 10px;
+  border-radius: 5px;
   display: block;
-  color: #666666;
-  background: #f9f9ff;
-  padding: 0.5em 1em;
-}
+  color: #cdcccc;
+  -webkit-transition: all 0.75s;
+  -moz-transition: all 0.75s;
+  -o-transition: all 0.75s;
+  transition: all 0.75s; }
 
-pre .comment, pre .template_comment, pre .diff .header, pre .javadoc {
-  color: #999988;
-  font-style: italic;
-}
+code:hover {
+  border: 1px dotted #cacaca;
+  -webkit-transition: all 0.75s;
+  -moz-transition: all 0.75s;
+  -o-transition: all 0.75s;
+  transition: all 0.75s;
+  cursor: text; }
 
-pre .keyword, pre .css .rule .keyword, pre .winutils, pre .javascript .title, pre .nginx .title, pre .subst, pre .request, pre .status {
-  color: #333333;
-  font-weight: 700;
-}
+code span {
+  color: #cdcccc;
+  -webkit-transition: all 0.75s;
+  -moz-transition: all 0.75s;
+  -o-transition: all 0.75s;
+  transition: all 0.75s; }
 
-pre .number, pre .hexcolor, pre .ruby .constant {
-  color: #009999;
-}
+code:hover,
+code:hover span,
+pre:hover .tag {
+  color: #5c6166;
+  -webkit-transition: all 0.75s;
+  -moz-transition: all 0.75s;
+  -o-transition: all 0.75s;
+  transition: all 0.75s; }
 
-pre .string, pre .tag .value, pre .phpdoc, pre .tex .formula {
-  color: #dd1144;
-}
+pre .tag {
+  color: #cdcccc;
+  -webkit-transition: all 0.75s;
+  -moz-transition: all 0.75s;
+  -o-transition: all 0.75s;
+  transition: all 0.75s; }
 
-pre .title, pre .id {
-  color: #990000;
-  font-weight: 700;
-}
+pre .value {
+  color: #84cdc9;
+  -webkit-transition: all 0.75s;
+  -moz-transition: all 0.75s;
+  -o-transition: all 0.75s;
+  transition: all 0.75s; }
 
-pre .javascript .title, pre .lisp .title, pre .clojure .title, pre .subst {
-  font-weight: 400;
-}
+pre:hover .value {
+  color: #00a59d;
+  -webkit-transition: all 0.75s;
+  -moz-transition: all 0.75s;
+  -o-transition: all 0.75s;
+  transition: all 0.75s; }
 
-pre .tag, pre .tag .title, pre .rules .property, pre .django .tag .keyword {
-  color: #0d0dc0;
-  font-weight: 400;
-}
+pre .title {
+  color: #ddcae4;
+  -webkit-transition: all 0.75s;
+  -moz-transition: all 0.75s;
+  -o-transition: all 0.75s;
+  transition: all 0.75s; }
 
-pre .attribute, pre .variable, pre .lisp .body {
-  color: teal;
-}
+pre:hover .title {
+  color: #893d73;
+  -webkit-transition: all 0.75s;
+  -moz-transition: all 0.75s;
+  -o-transition: all 0.75s;
+  transition: all 0.75s; }
 
-pre .regexp {
-  color: #009926;
-}
+pre .attribute {
+  color: #e8b6b6; }
 
-pre .symbol, pre .ruby .symbol .string, pre .lisp .keyword, pre .tex .special, pre .prompt {
-  color: #990073;
-}
-
-pre .built_in, pre .lisp .title, pre .clojure .built_in {
-  color: #0086b3;
-}
-
-pre .preprocessor, pre .pi, pre .doctype, pre .shebang, pre .cdata {
-  color: #999999;
-  font-weight: 700;
-}
-
-pre .deletion {
-  background: #ffdddd;
-}
-
-pre .addition {
-  background: #ddffdd;
-}
-
-pre .diff .change {
-  background: #0086b3;
-}
-
-pre .chunk {
-  color: #aaaaaa;
-}
-
-pre .class .title, pre .haskell .type, pre .vhdl .literal, pre .tex .command, pre .class {
-  color: #445588;
-  font-weight: 700;
-}
+pre:hover .attribute {
+  color: #994e4e; }

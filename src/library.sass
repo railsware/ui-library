@@ -1,5 +1,42 @@
 @import "http://fonts.googleapis.com/css?family=Open+Sans:400,700"
-
+/*==============================*/
+/*  Mixins
+/*==============================*/
+=clearfix
+  *zoom: 1
+  &:after
+    content: '.'
+    display: block
+    height: 0
+    line-height: 0
+    clear: both
+    visibility: hidden
+    
+=last-col
+  display: table-cell
+  float: none
+  width: auto
+  _margin-right: -3px
+  _left: -3px
+  _position: relative
+  *display: block
+  *zoom: 1
+  &:after
+    content: ' . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .'
+    clear: both
+    display: block
+    height: 0!important
+    line-height: 0
+    visibility: hidden
+    
+=transition($properties)
+  -webkit-transition: $properties
+  -moz-transition: $properties
+  -o-transition: $properties
+  transition: $properties
+/*==============================*/
+/*  Reset
+/*==============================*/
 *
   padding: 0
   margin: 0
@@ -7,7 +44,6 @@
   
 body, html 
   height: 100%
-
 /*==============================*/
 /*  Navigation
 /*==============================*/
@@ -15,155 +51,111 @@ body, html
   float: left
   position: relative
   margin-left: -220px
-  -webkit-transition: margin 0.4s ease
-  transition: margin 0.4s ease
+  +transition(margin 0.4s ease)
   width: 220px
-  z-index: 99
   &:after 
     content: "."
-  &.expanded 
-    margin-left: 0
   h1 
-    font: 16px/1.3em 'Open Sans'
-    color: #13c0a0
+    font: 400 16px/1.62em 'Open Sans'
+    color: #9AA1A2
     padding: 20px
-    font-weight: 700
   ul a 
-    font: 14px/1.3em 'Open Sans'
+    font: 400 16px/1.62em 'Open Sans'
     display: block
     font-size: 14px
-    font-weight: 700
     padding: 2px 20px
-    color: #9aa1a2
+    color: #9AA1A2
     text-decoration: none
     &:hover 
-      background: #3a3a3a
+      color: #3a3a3a
   .expander 
     position: absolute
-    display: block
-    width: 24px
-    height: 24px
-    padding: 10px 8px 8px
-    right: -40px
-    top: 5px
-    cursor: pointer
-    background: #2e3132
-    -webkit-border-radius: 0 4px 4px 0
-    border-radius: 0 4px 4px 0
-    &:hover 
-      background: #333536
+    right: -50px
+    top: 20px
     span 
       display: block
       height: 4px
       background: #9aa1a2
-      margin-bottom: 5px
+      margin: 1px 0 4px 1px
       border-radius: 3px
   .library-navigation-inner 
     z-index: 100
-    background: #2e3132
+    background: #ECF0F1
     height: 100%
     width: 220px
     position: fixed
-
+  &.expanded 
+    margin-left: 0
+    +transition(all 0.6s)
+    .expander 
+      right: -20px
+      +transition(all 0.3s)
+  
+.library-navigation .expander, .library-code-switch
+  display: block
+  width: 24px
+  height: 24px
+  padding: 10px 8px 8px
+  cursor: pointer
+  background: #ECF0F1
+  -webkit-border-radius: 20px
+  border-radius: 20px
+  +transition(all 0.3s)
+  &:hover 
+    background: #D6DBDC
+    
 .library-code-switch
   position: fixed
-  padding: 4px 8px 6px 8px
-  background: rgba(100, 100, 100, .4)
-  -webkit-border-radius: 0 0 4px 4px
-  border-radius: 0 0 4px 4px
+  padding: 10px 8px 6px 10px
+  top: 20px
   right: 20px
-  top: 0px
-  color: #fff
-  cursor: pointer
-  font-size: 13px
-  z-index: 100
-  &:hover
-    background: rgba(100,100,100,.5)
+  color: #9aa1a2
 
 
 /*=================================*/
 /*  Structure
 /*=================================*/
 .library-content 
-  display: table
-  float: none
-  width: auto
-  background: #fff
-  _margin-right: -3px
-  _left: -3px
-  _position: relative
-  *display: block
-  &:after
-    content: " . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
-    clear: both
-    display: block
-    height: 0 !important
-    line-height: 0
-    visibility: hidden
+  +last-col
   &.no-code
-    .library-section
-      background: transparent
     .library-preview
       width: 100%
       float: none
     .library-code
       display: none
-      
-.library-code
-  background: rgb(236,240,241)
 
 .library-section
-  position: relative
-  border-bottom: 1px solid #eee
-  &:after 
-    content: "."
-    display: block
-    height: 0
-    line-height: 0
-    clear: both
-    visibility: hidden
-  &:first-child .library-preview:before, &:first-child  .library-code:before 
-    display: block
-    color: #bfcbce
-    text-align: right
-    padding: 0 20px 20px 20px
-    margin-bottom: 20px
-    font: 13px/1.3em 'Open Sans'
-  &:first-child  .library-preview:before 
-    content: 'PREVIEW'
-  &:first-child  .library-code:before 
-    content: 'CODE'
-  &:first-child .library-section-label 
-    top: 60px
-  
+  +clearfix
+  &[data-code='false'] .library-preview
+    width: 100%
+    float: none
+
 .library-preview, .library-code 
-  padding: 30px 20px 20px 20px
+  padding: 0 20px 20px 20px
   box-sizing: border-box
   width: 50%
   float: left
-
+  
 .library-preview
   padding-left: 60px
+  padding-right: 60px
 
 .library-section-label 
-  position: absolute
-  left: 60px
-  top: 10px
-  font: 13px/1.3em 'Open Sans'
-  color: #9aa1ad
+  display: block
+  font: 200 18px/1.62em 'Open Sans'
+  color: #D6DBDC
+  padding: 10px 60px
 
 .library-section-divider 
-  background: rgba(200, 200, 200, 0.08)
-  border-bottom: 1px solid #eee
-  font: 16px/1.3em 'Open Sans'
-  color: #9aa1ad
-  padding: 5px 0 5px
-  text-align: center
+  font: 200 32px/1.62em 'Open Sans'
+  color: #D6DBDC
+  padding: 16px 0 20px 60px
+  border-bottom: 3px solid #ECF0F1
 
 .library-color-sample 
   display: inline-block
-  height: 70px
-  width: 70px
+  height: 120px
+  width: 120px
   padding: 10px
   margin: 0 10px 10px 0
   font: 13px/1.3em 'Open Sans'
@@ -174,74 +166,57 @@ body, html
 /*=============================*/
 /* Code Highlight
 /*=============================*/
-
 pre 
   max-width: 100%
   white-space: pre-wrap
 
 code 
+  font: 13px/1.4em 'Monaco'
   max-width: 100%
-  
-pre code 
-  font: 12px/1.3em 'Monaco'
-  display: block
-  color: #666
-  background: #f9f9ff
-  padding: .5em 1em
+  border: 1px dotted #eaeaea
+  padding: 10px
+  border-radius: 5px
+  display: block 
+  color: #cdcccc
+  +transition(all 0.75s)
 
-pre .comment,pre .template_comment,pre .diff .header,pre .javadoc 
-  color: #998
-  font-style: italic
+code:hover 
+  border: 1px dotted #cacaca
+  +transition(all 0.75s)
+  cursor: text
 
-pre .keyword,pre .css .rule .keyword,pre .winutils,pre .javascript .title,pre .nginx .title,pre .subst,pre .request,pre .status 
-  color: #333
-  font-weight: 700
+code span 
+  color: #cdcccc
+  +transition(all 0.75s)
 
-pre .number,pre .hexcolor,pre .ruby .constant 
-  color: #099
+code:hover,
+code:hover span,
+pre:hover .tag 
+  color: #5c6166
+  +transition(all 0.75s)
 
-pre .string,pre .tag .value,pre .phpdoc,pre .tex .formula 
-  color: #d14
+pre .tag 
+  color: #cdcccc
+  +transition(all 0.75s)
 
-pre .title,pre .id 
-  color: #900
-  font-weight: 700
+pre .value 
+  color: #84cdc9
+  +transition(all 0.75s)
 
-pre .javascript .title,pre .lisp .title,pre .clojure .title,pre .subst 
-  font-weight: 400
+pre:hover .value 
+  color: #00a59d
+  +transition(all 0.75s)
 
-pre .tag,pre .tag .title,pre .rules .property,pre .django .tag .keyword 
-  color: #0d0dc0
-  font-weight: 400
+pre .title 
+  color: #ddcae4
+  +transition(all 0.75s)
 
-pre .attribute,pre .variable,pre .lisp .body 
-  color: teal
+pre:hover .title 
+  color: #893d73
+  +transition(all 0.75s)
 
-pre .regexp 
-  color: #009926
+pre .attribute 
+  color: #e8b6b6
 
-pre .symbol,pre .ruby .symbol .string,pre .lisp .keyword,pre .tex .special,pre .prompt 
-  color: #990073
-
-pre .built_in,pre .lisp .title,pre .clojure .built_in 
-  color: #0086b3
-
-pre .preprocessor,pre .pi,pre .doctype,pre .shebang,pre .cdata 
-  color: #999
-  font-weight: 700
-
-pre .deletion 
-  background: #fdd
-
-pre .addition 
-  background: #dfd
-
-pre .diff .change 
-  background: #0086b3
-
-pre .chunk 
-  color: #aaa
-
-pre .class .title,pre .haskell .type,pre .vhdl .literal,pre .tex .command,pre .class 
-  color: #458
-  font-weight: 700
+pre:hover .attribute 
+  color: #994e4e

@@ -12,8 +12,7 @@ class window.Library
     $(".library-section").each (i, element) =>
       content = @htmlClean($(element).html())
       @setupSection(element, content, $(element).data('label'))
-      @codeSample(element, content)
-      @fixHeights(element)
+      @codeSample(element, content) unless $(element).data('code') is false
 
   setupSection: (element, content, label) ->
     $(element).html("<div class='library-preview'>")
@@ -30,12 +29,6 @@ class window.Library
     $.getScript "http://yandex.st/highlightjs/7.3/highlight.min.js", ->
       hljs.tabReplace = '  '
       hljs.initHighlightingOnLoad()
-
-  fixHeights: (element) ->
-    preview = $(element).find('.library-preview')
-    code = $(element).find('.library-code')
-    if $(preview).height() > $(code).height()
-      $(code).height($(preview).height())
 
   htmlClean: (html) ->
     html = html.replace(/(\r\n|\n|\r)/,'')
