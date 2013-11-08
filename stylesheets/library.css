@@ -40,6 +40,8 @@ body, html {
     text-decoration: none; }
     .library-navigation ul a:hover {
       color: #3a3a3a; }
+    .library-navigation ul a.active {
+      color: black; }
   .library-navigation .expander {
     position: absolute;
     right: -50px;
