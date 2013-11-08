@@ -114,13 +114,14 @@ body, html {
     line-height: 0;
     visibility: hidden; }
   .library-content.no-code .library-preview {
-    width: 100%;
-    float: none; }
+    width: 100%; }
   .library-content.no-code .library-code {
-    display: none; }
+    position: relative;
+    margin-right: -50%; }
 
 .library-section {
-  *zoom: 1; }
+  *zoom: 1;
+  overflow-x: hidden; }
   .library-section:after {
     content: ".";
     display: block;
@@ -138,7 +139,17 @@ body, html {
   width: 50%;
   float: left; }
 
+.library-code {
+  -webkit-transition: margin 0.5s;
+  -moz-transition: margin 0.5s;
+  -o-transition: margin 0.5s;
+  transition: margin 0.5s; }
+
 .library-preview {
+  -webkit-transition: width 0.5s;
+  -moz-transition: width 0.5s;
+  -o-transition: width 0.5s;
+  transition: width 0.5s;
   padding-left: 60px;
   padding-right: 60px; }
 

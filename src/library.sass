@@ -122,12 +122,13 @@ body, html
   &.no-code
     .library-preview
       width: 100%
-      float: none
     .library-code
-      display: none
+      position: relative
+      margin-right: -50%
 
 .library-section
   +clearfix
+  overflow-x: hidden
   &[data-code='false'] .library-preview
     width: 100%
     float: none
@@ -137,8 +138,12 @@ body, html
   box-sizing: border-box
   width: 50%
   float: left
+
+.library-code
+  +transition(margin .5s)
   
 .library-preview
+  +transition(width .5s)
   padding-left: 60px
   padding-right: 60px
 
