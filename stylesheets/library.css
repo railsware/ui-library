@@ -51,6 +51,8 @@ body, html {
       height: 4px;
       background: #9aa1a2;
       margin: 1px 0 4px 1px;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
       border-radius: 3px; }
   .library-navigation .library-navigation-inner {
     z-index: 100;
@@ -79,6 +81,7 @@ body, html {
   cursor: pointer;
   background: #ecf0f1;
   -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
   border-radius: 20px;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
@@ -118,7 +121,8 @@ body, html {
     width: 100%; }
   .library-content.no-code .library-code {
     position: relative;
-    margin-right: -50%; }
+    width: 100%;
+    margin-right: -100%; }
 
 .library-section {
   *zoom: 1; }
@@ -130,8 +134,7 @@ body, html {
     clear: both;
     visibility: hidden; }
   .library-section[data-code='false'] .library-preview {
-    width: 100%;
-    float: none; }
+    width: 100%; }
 
 .library-preview, .library-code {
   padding: 0 20px 20px 20px;
@@ -142,10 +145,10 @@ body, html {
   float: left; }
 
 .library-code {
-  -webkit-transition: margin 0.5s;
-  -moz-transition: margin 0.5s;
-  -o-transition: margin 0.5s;
-  transition: margin 0.5s; }
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s; }
 
 .library-preview {
   -webkit-transition: width 0.5s;
@@ -190,6 +193,8 @@ code {
   max-width: 100%;
   border: 1px dotted #eaeaea;
   padding: 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
   border-radius: 5px;
   display: block;
   color: #cdcccc;

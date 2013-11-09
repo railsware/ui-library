@@ -1,6 +1,7 @@
 class window.Library
 
   constructor: ->
+    @keyCodes = [37, 39, 38, 40]
     @current_section = $('.library-navigation ul > li:first a').attr('href')
     @bindArrows()
     $.when(@buildSections()).done =>
@@ -17,15 +18,12 @@ class window.Library
       
   bindArrows: ->
     $("body").keydown (e) =>
-      e.preventDefault()
-      if e.keyCode == 37
-        $('.library-navigation').toggleClass('expanded')
-      if e.keyCode == 39
-        $('.library-content').toggleClass('no-code')
-      if e.keyCode == 38
-        @scrollToPrevious()
-      if e.keyCode == 40
-        @scrollToNext()
+      e.preventDefault() unless @keyCodes.indexOf(e.keyCoe) is -1
+      switch e.keyCode
+        when 37 then $('.library-navigation').toggleClass('expanded')
+        when 39 then $('.library-content').toggleClass('no-code')
+        when 38 then @scrollToPrevious()
+        when 40 then @scrollToNext()
     
   buildSections: ->
     $(".library-section").each (i, element) =>

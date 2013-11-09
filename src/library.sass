@@ -34,6 +34,16 @@
   -moz-transition: $properties
   -o-transition: $properties
   transition: $properties
+  
+=box-sizing
+  -webkit-box-sizing: border-box
+  -moz-box-sizing: border-box
+  box-sizing: border-box
+  
+=border-radius($radius)
+  -webkit-border-radius: $radius
+  -moz-border-radius: $radius
+  border-radius: $radius
 /*==============================*/
 /*  Reset
 /*==============================*/
@@ -79,7 +89,7 @@ body, html
       height: 4px
       background: #9aa1a2
       margin: 1px 0 4px 1px
-      border-radius: 3px
+      +border-radius(3px)
   .library-navigation-inner 
     z-index: 100
     background: #ECF0F1
@@ -100,8 +110,7 @@ body, html
   padding: 10px 8px 8px
   cursor: pointer
   background: #ECF0F1
-  -webkit-border-radius: 20px
-  border-radius: 20px
+  +border-radius(20px)
   +transition(all 0.3s)
   &:hover 
     background: #D6DBDC
@@ -125,22 +134,22 @@ body, html
       width: 100%
     .library-code
       position: relative
-      margin-right: -50%
+      width: 100%
+      margin-right: -100%
 
 .library-section
   +clearfix
   &[data-code='false'] .library-preview
     width: 100%
-    float: none
 
 .library-preview, .library-code 
   padding: 0 20px 20px 20px
-  box-sizing: border-box
+  +box-sizing
   width: 50%
   float: left
 
 .library-code
-  +transition(margin .5s)
+  +transition(all .5s)
   
 .library-preview
   +transition(width .5s)
@@ -182,7 +191,7 @@ code
   max-width: 100%
   border: 1px dotted #eaeaea
   padding: 10px
-  border-radius: 5px
+  +border-radius(5px)
   display: block 
   color: #cdcccc
   +transition(all 0.75s)
