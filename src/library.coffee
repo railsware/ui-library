@@ -1,32 +1,47 @@
 class window.Library
 
   constructor: ->
+    # Key Codes That are used
     @keyCodes = [37, 39, 38, 40]
-    @current_section = $('.library-navigation ul > li:first a').attr('href')
+
+    # Selectors
+    @navigation = '.library-navigation'
+    @content    = '.library-content'
+    @section    = '.library-section'
+
+    # Current navigation section
+    @currentSection = $('a.active', @navigation).attr('href')
+
+    # Buind Library Events and arrows
     @bindArrows()
+    @bindEvents()
+
+    # Code Highlight after building sections
     $.when(@buildSections()).done =>
       @loadHighlight()
-    $('.library-navigation .expander').click ->
-      $('.library-navigation').toggleClass('expanded')
+
+  bindEvents: ->
+    $('.expander', @navigation).click =>
+      $(@navigation).toggleClass('expanded')
       
-    $('.library-code-switch').click ->
-      $('.library-content').toggleClass('no-code')
+    $('.library-code-switch').click =>
+      $(@content).toggleClass('no-code')
       
-    $(".library-navigation ul li a").click (e) =>
+    $("ul li a", @navigation).click (e) =>
       e.preventDefault()
       @scrollToElement($(e.currentTarget).attr('href'))
-      
+
   bindArrows: ->
-    $("body").keydown (e) =>
-      e.preventDefault() unless @keyCodes.indexOf(e.keyCoe) is -1
+    $(document).keydown (e) =>
+      e.preventDefault() unless @keyCodes.indexOf(e.keyCode) is -1
       switch e.keyCode
-        when 37 then $('.library-navigation').toggleClass('expanded')
-        when 39 then $('.library-content').toggleClass('no-code')
+        when 37 then $(@navigation).toggleClass('expanded')
+        when 39 then $(@content).toggleClass('no-code')
         when 38 then @scrollToPrevious()
         when 40 then @scrollToNext()
-    
+
   buildSections: ->
-    $(".library-section").each (i, element) =>
+    $(@section).each (i, element) =>
       content = @htmlClean($(element).html())
       @setupSection(element, content, $(element).data('label'))
       @codeSample(element, content) unless $(element).data('code') is false
@@ -40,7 +55,6 @@ class window.Library
     $(element).append("</div><div class='library-code'></div>")
     $(element).find('.library-code').html('<pre><code></code></pre>')
     $(element).find('.library-code pre code').text(content)
-    $(element).find('.library-code pre').css('visibility', 'hidden') if($(element).data('code') == false)
 
   loadHighlight: ->
     $.getScript "http://yandex.st/highlightjs/7.3/highlight.min.js", ->
@@ -48,19 +62,19 @@ class window.Library
       hljs.initHighlightingOnLoad()
 
   scrollToPrevious: ->
-    prev = $("a[href='#{@current_section}']", '.library-navigation').parent('li').prev()
+    prev = $("a[href='#{@currentSection}']", @navigation).parent('li').prev()
     @scrollToElement($(prev).find('a').attr('href')) unless prev.length is 0
-  
+
   scrollToNext: ->
-    next = $("a[href='#{@current_section}']", '.library-navigation').parent('li').next()
+    next = $("a[href='#{@currentSection}']", @navigation).parent('li').next()
     @scrollToElement($(next).find('a').attr('href')) unless next.length is 0
-    
+
   scrollToElement: (element) ->
-    @current_section = element
+    @currentSection = element
     $('html, body').animate({scrollTop: $(element).offset().top}, 800)
-    $('.library-navigation ul li a').removeClass('active')
-    $("a[href='#{@current_section}']", '.library-navigation').addClass('active')
-    
+    $('ul li a', @navigation).removeClass('active')
+    $("a[href='#{@currentSection}']", @navigation).addClass('active')
+
   htmlClean: (html) ->
     html = html.replace(/(\r\n|\n|\r)/,'')
     leadingSpaces = html.substr(0, html.indexOf("<"))
