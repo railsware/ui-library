@@ -32,6 +32,7 @@ All source files of stylesheets and javascripts are placed inside `src` folder a
 For compiling source files you can use tools like [CodeKit](http://incident57.com/codekit/) or do it manualy with coffescript and sass via terminal:
 
 Run from project's folder:
+
 `sass --watch src/library.sass:stylesheets/library.css` for css changes
 
 `coffee -o javascripts/ -cw src/` for javascript changes
