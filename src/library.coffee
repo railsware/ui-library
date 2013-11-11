@@ -8,6 +8,7 @@ class window.Library
     @navigation = '.library-navigation'
     @content    = '.library-content'
     @section    = '.library-section'
+    @codeSwitcher = '.library-code-switch'
 
     # Current navigation section
     @currentSection = $('a.active', @navigation).attr('href')
@@ -20,12 +21,13 @@ class window.Library
     $.when(@buildSections()).done =>
       @loadHighlight()
 
+  # Initial Setup Methods
   bindEvents: ->
     $('.expander', @navigation).click =>
       $(@navigation).toggleClass('expanded')
       
-    $('.library-code-switch').click =>
-      $(@content).toggleClass('no-code')
+    $(@codeSwitcher).click =>
+      @showCode()
       
     $("ul li a", @navigation).click (e) =>
       e.preventDefault()
@@ -36,7 +38,7 @@ class window.Library
       e.preventDefault() unless @keyCodes.indexOf(e.keyCode) is -1
       switch e.keyCode
         when 37 then $(@navigation).toggleClass('expanded')
-        when 39 then $(@content).toggleClass('no-code')
+        when 39 then @showCode()
         when 38 then @scrollToPrevious()
         when 40 then @scrollToNext()
 
@@ -44,14 +46,14 @@ class window.Library
     $(@section).each (i, element) =>
       content = @htmlClean($(element).html())
       @setupSection(element, content, $(element).data('label'))
-      @codeSample(element, content) unless $(element).data('code') is false
+      @setupCodeSample(element, content) unless $(element).data('code') is false
 
   setupSection: (element, content, label) ->
     $(element).html("<div class='library-preview'>")
     $(element).find('.library-preview').html(content)
     $(element).prepend("<span class='library-section-label'>"+label+"</span>")
 
-  codeSample: (element, content) ->
+  setupCodeSample: (element, content) ->
     $(element).append("</div><div class='library-code'></div>")
     $(element).find('.library-code').html('<pre><code></code></pre>')
     $(element).find('.library-code pre code').text(content)
@@ -60,6 +62,20 @@ class window.Library
     $.getScript "http://yandex.st/highlightjs/7.3/highlight.min.js", ->
       hljs.tabReplace = '  '
       hljs.initHighlightingOnLoad()
+
+  htmlClean: (html) ->
+    html = html.replace(/(\r\n|\n|\r)/,'')
+    leadingSpaces = html.substr(0, html.indexOf("<"))
+    dirtyHtmlArray = html.split(/(\r\n|\n|\r)/g)
+    linesArray = []
+    for line in dirtyHtmlArray
+      linesArray.push(line.replace(leadingSpaces,''))
+    linesArray.join('').trim()
+
+  # User Interaction Methods
+  showCode: ->
+    $(@content).toggleClass('no-code')
+    $(@codeSwitcher).toggleClass('active')
 
   scrollToPrevious: ->
     prev = $("a[href='#{@currentSection}']", @navigation).parent('li').prev()
@@ -74,15 +90,6 @@ class window.Library
     $('html, body').animate({scrollTop: $(element).offset().top}, 800)
     $('ul li a', @navigation).removeClass('active')
     $("a[href='#{@currentSection}']", @navigation).addClass('active')
-
-  htmlClean: (html) ->
-    html = html.replace(/(\r\n|\n|\r)/,'')
-    leadingSpaces = html.substr(0, html.indexOf("<"))
-    dirtyHtmlArray = html.split(/(\r\n|\n|\r)/g)
-    linesArray = []
-    for line in dirtyHtmlArray
-      linesArray.push(line.replace(leadingSpaces,''))
-    linesArray.join('').trim()
 
 $ ->
   window.library = new Library()

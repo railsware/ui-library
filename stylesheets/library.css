@@ -28,13 +28,12 @@ body, html {
   .library-navigation:after {
     content: "."; }
   .library-navigation h1 {
-    font: 400 16px/1.62em "Open Sans";
+    font: 200 26px/1.62em "Open Sans";
     color: #9aa1a2;
     padding: 20px; }
   .library-navigation ul a {
     font: 400 16px/1.62em "Open Sans";
     display: block;
-    font-size: 14px;
     padding: 2px 20px;
     color: #9aa1a2;
     text-decoration: none; }
@@ -95,7 +94,11 @@ body, html {
   padding: 10px 8px 6px 10px;
   top: 20px;
   right: 20px;
-  color: #9aa1a2; }
+  color: #9aa1a2;
+  font-weight: 800; }
+  .library-code-switch.active {
+    color: white;
+    background: #9aa1a2; }
 
 /*================================= */
 /*  Structure */
@@ -155,8 +158,16 @@ body, html {
   -moz-transition: width 0.5s;
   -o-transition: width 0.5s;
   transition: width 0.5s;
+  *zoom: 1;
   padding-left: 60px;
   padding-right: 60px; }
+  .library-preview:after {
+    content: ".";
+    display: block;
+    height: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden; }
 
 .library-section-label {
   display: block;
@@ -171,15 +182,22 @@ body, html {
   border-bottom: 3px solid #ecf0f1; }
 
 .library-color-sample {
-  display: inline-block;
-  height: 120px;
-  width: 120px;
-  padding: 10px;
+  float: left;
+  height: 130px;
+  width: 130px;
   margin: 0 10px 10px 0;
-  font: 13px/1.3em "Open Sans";
-  color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  font: 600 15px/1.3em "Open Sans";
+  color: rgba(0, 0, 0, 0.2);
   text-align: center;
   text-transform: uppercase; }
+  .library-color-sample .library-color-shade {
+    height: 30px;
+    padding: 10px;
+    margin-left: -10px;
+    margin-right: -10px; }
+    .library-color-sample .library-color-shade:first-child {
+      margin-top: -10px; }
 
 /*============================= */
 /* Code Highlight */
