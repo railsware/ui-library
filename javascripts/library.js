@@ -9,12 +9,22 @@
       this.section = '.library-section';
       this.codeSwitcher = '.library-code-switch';
       this.currentSection = $('a.active', this.navigation).attr('href');
+      this.module = '.library-section-divider';
+      this.createNavigation();
       this.bindArrows();
       this.bindEvents();
       $.when(this.buildSections()).done(function() {
         return _this.loadHighlight();
       });
     }
+
+    Library.prototype.createNavigation = function() {
+      var _this = this;
+      $(_this.navigation + " .library-navigation-inner").append("<ul></ul>");
+      return $(this.module).each(function(i, element) {
+        $(_this.navigation).find("ul").append("<li><a href='#" + $(element).attr("id") + "'>" + $(element).text() + "</a></li>");
+      });
+    };
 
     Library.prototype.bindEvents = function() {
       var _this = this;
